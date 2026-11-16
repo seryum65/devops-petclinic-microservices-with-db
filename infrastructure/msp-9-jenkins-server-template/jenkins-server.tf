@@ -79,7 +79,23 @@ resource "aws_iam_role" "tf-jenkins-server-role" {
 }
 EOF
 
-  managed_policy_arns = ["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess", "arn:aws:iam::aws:policy/AWSCloudFormationFullAccess", "arn:aws:iam::aws:policy/AdministratorAccess"]
+}
+
+# Attach managed policies separately instead of using the deprecated
+# managed_policy_arns argument on aws_iam_role.
+resource "aws_iam_role_policy_attachment" "jenkins_ecr_full_access" {
+  role       = aws_iam_role.tf-jenkins-server-role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "jenkins_cloudformation_full_access" {
+  role       = aws_iam_role.tf-jenkins-server-role.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSCloudFormationFullAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "jenkins_administrator_access" {
+  role       = aws_iam_role.tf-jenkins-server-role.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
 resource "aws_iam_instance_profile" "tf-jenkins-server-profile" {
