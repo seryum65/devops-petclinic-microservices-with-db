@@ -1,7 +1,7 @@
 # Environment variables
 PATH="$PATH:/usr/local/bin"
 ANS_KEYPAIR="petclinic-ansible-test-dev.key"
-AWS_REGION="us-east-1"
+AWS_REGION="eu-north-1"
 export ANSIBLE_PRIVATE_KEY_FILE="${WORKSPACE}/${ANS_KEYPAIR}"
 export ANSIBLE_HOST_KEY_CHECKING=False
 # Create key pair for Ansible
