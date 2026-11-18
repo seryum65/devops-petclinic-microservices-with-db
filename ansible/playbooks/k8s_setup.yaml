@@ -43,6 +43,7 @@
         - conntrack-tools
         - containerd
         - docker
+        - git
       state: present
 
   - name: Add Kubernetes repository
@@ -132,6 +133,12 @@
     add_host:
       name: "kube_master"
       worker_join: "{{ join_command_for_workers.stdout.strip() }}"
+
+  - name: install git (required for helm plugin install)
+    become: true
+    dnf:
+      name: git
+      state: present
 
   - name: install Helm
     shell: |
