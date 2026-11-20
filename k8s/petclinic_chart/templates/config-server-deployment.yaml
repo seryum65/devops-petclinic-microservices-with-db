@@ -31,7 +31,6 @@ spec:
           name: config-server
           ports:
             - containerPort: 8888
-              hostPort: 8888
               protocol: TCP
           resources: {}
       imagePullSecrets:

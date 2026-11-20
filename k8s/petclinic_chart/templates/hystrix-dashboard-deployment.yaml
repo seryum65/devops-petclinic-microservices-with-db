@@ -31,7 +31,6 @@ spec:
           name: hystrix-dashboard
           ports:
             - containerPort: 7979
-              hostPort: 7979
               protocol: TCP
           resources: {}
       initContainers:

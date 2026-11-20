@@ -29,7 +29,6 @@ spec:
           name: tracing-server
           ports:
             - containerPort: 9411
-              hostPort: 9411
               protocol: TCP
           resources: {}
       restartPolicy: Always

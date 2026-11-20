@@ -31,7 +31,6 @@ spec:
           name: admin-server
           ports:
             - containerPort: 9090
-              hostPort: 9090
               protocol: TCP
           resources: {}
       initContainers:

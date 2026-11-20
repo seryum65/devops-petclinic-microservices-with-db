@@ -31,7 +31,6 @@ spec:
           name: prometheus-server
           ports:
             - containerPort: 9090
-              hostPort: 9091
               protocol: TCP
           resources: {}
       imagePullSecrets:

@@ -31,7 +31,6 @@ spec:
           name: customers-service
           ports:
             - containerPort: 8081
-              hostPort: 8081
               protocol: TCP
           resources: {}
       initContainers:

@@ -31,7 +31,6 @@ spec:
           name: vets-service
           ports:
             - containerPort: 8083
-              hostPort: 8083
               protocol: TCP
           resources: {}
       initContainers:
