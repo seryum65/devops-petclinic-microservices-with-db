@@ -1,6 +1,6 @@
 nodes:
-  - address: 172.31.23.155
-    internal_address: 172.31.23.155
+  - address: 172.31.39.5              # Change with the Private Ip of rancher server
+    internal_address: 172.31.39.5     # Change with the Private Ip of rancher server
     user: ubuntu
     role:
       - controlplane
@@ -15,8 +15,8 @@ services:
     creation: 6h
     retention: 24h
 
-ssh_key_path: ~/.ssh/petclinic-ranchertr.pem
-
+ssh_key_path: ~/.ssh/petclinic-rancher.pem
+kubernetes_version: v1.30.14-rancher1-1         #RKE, cluster.yml içinde kubernetes_version belirtmediğiniz için varsayılan v1.32.13-rancher1 sürümünü seçti. Bu sürümün imajı rke-extended-life/hyperkube deposunda duruyor ve "pull access denied" hatası veriyor. Daha önce belirttiğim gibi bu depo aktif bir RKE Extended Life aboneliği gerektiriyor.
 # Required for external TLS termination with
 # ingress-nginx v0.22+
 ingress:
